@@ -32,12 +32,8 @@ export class FirebaseService {
   }
   async signin() {
     const provider = new auth.GoogleAuthProvider();
-    this.afAuth.auth
-      .setPersistence(auth.Auth.Persistence.LOCAL)
-      .then(async () => {
-        const cred = await this.afAuth.auth.signInWithPopup(provider);
-        return this.createUserData(cred.user);
-      });
+    const cred = await this.afAuth.auth.signInWithPopup(provider);
+    return this.createUserData(cred.user);
   }
 
   async logout() {

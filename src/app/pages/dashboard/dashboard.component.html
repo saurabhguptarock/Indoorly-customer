@@ -8,7 +8,20 @@
         <div class="card-header">
           <h4 class="card-title">Your Cart</h4>
         </div>
-        <div class="card-body">
+        <!-- <div *ngIf="products" class="card-body">
+          <div class="row">
+            <div class="col-4">
+              <h6>Your cart is Empty.</h6>
+            </div>
+            <div class="col-5">
+              <button type="button" class="btn btn-primary btn-round">
+                Buy Products
+              </button>
+            </div>
+          </div>
+        </div> -->
+
+        <div *ngIf="products" class="card-body">
           <div class="table-responsive">
             <table class="table table-shopping">
               <thead class="">
@@ -21,7 +34,7 @@
                   <th class="text-right">Amount</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody *ngIf="products">
                 <tr *ngFor="let product of products | async">
                   <td>
                     <div class="img-container">

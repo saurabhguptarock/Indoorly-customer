@@ -15,7 +15,6 @@ import { NgbdModalBasic } from "./modal/modal.component";
 import { ImageUploadComponent } from "./image-upload/image-upload.component";
 import { FileInputComponent } from "./file-input/file-input.component";
 import { PictureUploadComponent } from "./picture-upload/picture-upload.component";
-import { FixedPluginComponent } from "./fixed-plugin/fixed-plugin.component";
 
 @NgModule({
   imports: [
@@ -34,8 +33,7 @@ import { FixedPluginComponent } from "./fixed-plugin/fixed-plugin.component";
     NgbdModalBasic,
     ImageUploadComponent,
     FileInputComponent,
-    PictureUploadComponent,
-    FixedPluginComponent
+    PictureUploadComponent
   ],
   exports: [
     NavbarComponent,
@@ -44,8 +42,7 @@ import { FixedPluginComponent } from "./fixed-plugin/fixed-plugin.component";
     NgbdModalBasic,
     ImageUploadComponent,
     PictureUploadComponent,
-    FileInputComponent,
-    FixedPluginComponent
+    FileInputComponent
   ]
 })
 export class ComponentsModule {}

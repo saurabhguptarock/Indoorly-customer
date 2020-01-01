@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FirebaseService } from "src/app/services/firebase.service";
 import { Router } from "@angular/router";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: "app-login",
@@ -10,13 +11,13 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit, OnDestroy {
   public focus1;
   public focus2;
-  user: User;
-  constructor(private auth: FirebaseService, private navigator: Router) {}
+  constructor(
+    private auth: FirebaseService,
+    private afAuth: AngularFireAuth,
+    private navigator: Router
+  ) {}
 
   ngOnInit() {
-    this.auth.user.subscribe(user => {
-      this.user = user;
-    });
     var $page = document.getElementsByClassName("full-page")[0];
     var image_src;
     var image_container = document.createElement("div");
@@ -30,9 +31,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     $page.classList.remove("register-page");
   }
   async login() {
-    await this.auth.signin();
-    if (this.user != null) {
+    if (this.afAuth.auth.currentUser != null) {
       this.navigator.navigate(["/dashboard"]);
+    } else {
+      await this.auth.signin();
+      await this.navigator.navigate(["/dashboard"]);
     }
   }
 }

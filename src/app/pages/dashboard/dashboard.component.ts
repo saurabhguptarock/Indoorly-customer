@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import * as Chartist from "chartist";
 import { FirebaseService } from "src/app/services/firebase.service";
 import { Observable, of } from "rxjs";
+import { Router } from "@angular/router";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: "app-dashboard",
@@ -61,11 +63,18 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  constructor(private service: FirebaseService) {}
+  constructor(
+    private service: FirebaseService,
+    private afAuth: AngularFireAuth,
+    private router: Router
+  ) {
+    if (this.afAuth.auth.currentUser == null) {
+      this.router.navigate(["/pages/login"]);
+    }
+  }
   products: Observable<firebase.firestore.DocumentData[]>;
   ngOnInit() {
     this.products = this.service.fetchProducts();
-    console.log(this.products);
     this.gradientChartOptionsConfiguration = {
       maintainAspectRatio: false,
       legend: {
