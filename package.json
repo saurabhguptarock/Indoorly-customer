@@ -27,7 +27,7 @@
     "@types/googlemaps": "3.30.16",
     "angular-archwizard": "3.0.0",
     "angular2-multiselect-dropdown": "4.2.1",
-    "bootstrap": "4.2.1",
+    "bootstrap": "4.3.1",
     "chart.js": "2.7.3",
     "chartist": "0.11.0",
     "core-js": "2.6.2",
