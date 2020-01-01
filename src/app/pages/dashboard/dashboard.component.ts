@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import * as Chartist from "chartist";
+import { FirebaseService } from "src/app/services/firebase.service";
+import { Observable, of } from "rxjs";
 
 @Component({
   selector: "app-dashboard",
@@ -7,11 +9,11 @@ import * as Chartist from "chartist";
   styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent implements OnInit {
-  public gradientStroke;
-  public chartColor;
-  public canvas: any;
-  public ctx;
-  public gradientFill;
+  // public gradientStroke;
+  // public chartColor;
+  // public canvas: any;
+  // public ctx;
+  // public gradientFill;
 
   public lineBigDashboardChartType;
   public lineBigDashboardChartData: Array<any>;
@@ -59,9 +61,11 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  constructor() {}
-
+  constructor(private service: FirebaseService) {}
+  products: Observable<firebase.firestore.DocumentData[]>;
   ngOnInit() {
+    this.products = this.service.fetchProducts();
+    console.log(this.products);
     this.gradientChartOptionsConfiguration = {
       maintainAspectRatio: false,
       legend: {
@@ -117,17 +121,17 @@ export class DashboardComponent implements OnInit {
       }
     };
 
-    this.chartColor = "#FFFFFF";
-    this.canvas = document.getElementById("bigDashboardChart");
-    this.ctx = this.canvas.getContext("2d");
+    // this.chartColor = "#FFFFFF";
+    // this.canvas = document.getElementById("bigDashboardChart");
+    // this.ctx = this.canvas.getContext("2d");
 
-    this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
-    this.gradientStroke.addColorStop(0, "#80b6f4");
-    this.gradientStroke.addColorStop(1, this.chartColor);
+    // this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
+    // this.gradientStroke.addColorStop(0, "#80b6f4");
+    // this.gradientStroke.addColorStop(1, this.chartColor);
 
-    this.gradientFill = this.ctx.createLinearGradient(0, 200, 0, 50);
-    this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-    this.gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
+    // this.gradientFill = this.ctx.createLinearGradient(0, 200, 0, 50);
+    // this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    // this.gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
 
     this.lineBigDashboardChartData = [
       {
@@ -145,12 +149,12 @@ export class DashboardComponent implements OnInit {
     ];
     this.lineBigDashboardChartColors = [
       {
-        backgroundColor: this.gradientFill,
-        borderColor: this.chartColor,
-        pointBorderColor: this.chartColor,
-        pointBackgroundColor: "#2c2c2c",
-        pointHoverBackgroundColor: "#2c2c2c",
-        pointHoverBorderColor: this.chartColor
+        // backgroundColor: this.gradientFill,
+        // borderColor: this.chartColor,
+        // pointBorderColor: this.chartColor,
+        // pointBackgroundColor: "#2c2c2c",
+        // pointHoverBackgroundColor: "#2c2c2c",
+        // pointHoverBorderColor: this.chartColor
       }
     ];
     this.lineBigDashboardChartLabels = [
@@ -229,16 +233,16 @@ export class DashboardComponent implements OnInit {
 
     this.lineBigDashboardChartType = "line";
 
-    this.canvas = document.getElementById("lineChartExample");
-    this.ctx = this.canvas.getContext("2d");
+    // this.canvas = document.getElementById("lineChartExample");
+    // this.ctx = this.canvas.getContext("2d");
 
-    this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
-    this.gradientStroke.addColorStop(0, "#80b6f4");
-    this.gradientStroke.addColorStop(1, this.chartColor);
+    // this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
+    // this.gradientStroke.addColorStop(0, "#80b6f4");
+    // this.gradientStroke.addColorStop(1, this.chartColor);
 
-    this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
-    this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-    this.gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
+    // this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
+    // this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    // this.gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
 
     this.lineChartData = [
       {
@@ -256,8 +260,8 @@ export class DashboardComponent implements OnInit {
       {
         borderColor: "#f96332",
         pointBorderColor: "#FFF",
-        pointBackgroundColor: "#f96332",
-        backgroundColor: this.gradientFill
+        pointBackgroundColor: "#f96332"
+        // backgroundColor: this.gradientFill
       }
     ];
     this.lineChartLabels = [
@@ -278,16 +282,16 @@ export class DashboardComponent implements OnInit {
 
     this.lineChartType = "line";
 
-    this.canvas = document.getElementById("lineChartExampleWithNumbersAndGrid");
-    this.ctx = this.canvas.getContext("2d");
+    // this.canvas = document.getElementById("lineChartExampleWithNumbersAndGrid");
+    // this.ctx = this.canvas.getContext("2d");
 
-    this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
-    this.gradientStroke.addColorStop(0, "#18ce0f");
-    this.gradientStroke.addColorStop(1, this.chartColor);
+    // this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
+    // this.gradientStroke.addColorStop(0, "#18ce0f");
+    // this.gradientStroke.addColorStop(1, this.chartColor);
 
-    this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
-    this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-    this.gradientFill.addColorStop(1, this.hexToRGB("#18ce0f", 0.4));
+    // this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
+    // this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    // this.gradientFill.addColorStop(1, this.hexToRGB("#18ce0f", 0.4));
 
     this.lineChartWithNumbersAndGridData = [
       {
@@ -305,8 +309,8 @@ export class DashboardComponent implements OnInit {
       {
         borderColor: "#18ce0f",
         pointBorderColor: "#FFF",
-        pointBackgroundColor: "#18ce0f",
-        backgroundColor: this.gradientFill
+        pointBackgroundColor: "#18ce0f"
+        // backgroundColor: this.gradientFill
       }
     ];
     this.lineChartWithNumbersAndGridLabels = [
@@ -323,12 +327,12 @@ export class DashboardComponent implements OnInit {
 
     this.lineChartWithNumbersAndGridType = "line";
 
-    this.canvas = document.getElementById("activeCountries");
-    this.ctx = this.canvas.getContext("2d");
+    // this.canvas = document.getElementById("activeCountries");
+    // this.ctx = this.canvas.getContext("2d");
 
-    this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
-    this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-    this.gradientFill.addColorStop(1, this.hexToRGB("#2CA8FF", 0.6));
+    // this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
+    // this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    // this.gradientFill.addColorStop(1, this.hexToRGB("#2CA8FF", 0.6));
 
     this.lineChartGradientsNumbersData = [
       {
@@ -344,7 +348,7 @@ export class DashboardComponent implements OnInit {
     ];
     this.lineChartGradientsNumbersColors = [
       {
-        backgroundColor: this.gradientFill,
+        // backgroundColor: this.gradientFill,
         borderColor: "#2CA8FF",
         pointBorderColor: "#FFF",
         pointBackgroundColor: "#2CA8FF"

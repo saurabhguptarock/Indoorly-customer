@@ -4,8 +4,7 @@ import {
   LocationStrategy,
   PathLocationStrategy
 } from "@angular/common";
-import { ROUTES } from "../../components/sidebar/sidebar.component";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-auth-layout",
@@ -22,19 +21,19 @@ export class AuthLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listTitles = ROUTES.filter(listTitle => listTitle);
-    this.router.events.subscribe((event) => {
-       this.isCollapsed = false;
-       const navbar = document.getElementsByTagName('nav')[0];
+    this.listTitles = ["Dashboard"];
+    this.router.events.subscribe(event => {
+      this.isCollapsed = false;
+      const navbar = document.getElementsByTagName("nav")[0];
 
-       if (this.isCollapsed) {
-         navbar.classList.remove('navbar-transparent');
-         navbar.classList.add('bg-white');
-       }else{
-         navbar.classList.add('navbar-transparent');
-         navbar.classList.remove('bg-white');
-       }
-   });
+      if (this.isCollapsed) {
+        navbar.classList.remove("navbar-transparent");
+        navbar.classList.add("bg-white");
+      } else {
+        navbar.classList.add("navbar-transparent");
+        navbar.classList.remove("bg-white");
+      }
+    });
   }
   getTitle() {
     let titlee: any = this.location.prepareExternalUrl(this.location.path());
@@ -56,16 +55,15 @@ export class AuthLayoutComponent implements OnInit {
     }
     return "Now UI Dashboard PRO Angular";
   }
-  collapse(){
+  collapse() {
     this.isCollapsed = !this.isCollapsed;
-    const navbar = document.getElementsByTagName('nav')[0];
+    const navbar = document.getElementsByTagName("nav")[0];
     if (this.isCollapsed) {
-      navbar.classList.remove('navbar-transparent');
-      navbar.classList.add('bg-white');
-    }else{
-      navbar.classList.add('navbar-transparent');
-      navbar.classList.remove('bg-white');
+      navbar.classList.remove("navbar-transparent");
+      navbar.classList.add("bg-white");
+    } else {
+      navbar.classList.add("navbar-transparent");
+      navbar.classList.remove("bg-white");
     }
-
   }
 }

@@ -8,21 +8,30 @@ import { ToastrModule } from "ngx-toastr";
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
-
+import { environment } from "../../src/environments/environmetn.prod";
+import { AngularFireModule } from "@angular/fire";
+import {
+  AngularFirestoreModule,
+  AngularFirestore
+} from "@angular/fire/firestore";
+import { FirebaseService } from "./services/firebase.service";
+import { AngularFireAuth } from "@angular/fire/auth";
 import { AppRoutes } from "./app.routing";
 
 @NgModule({
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   imports: [
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes,{
+    RouterModule.forRoot(AppRoutes, {
       useHash: true
     }),
     NgbModule,
     ToastrModule.forRoot(), // ToastrModule added
-    ComponentsModule
+    ComponentsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule.enablePersistence()
   ],
-  providers: [],
+  providers: [AngularFirestore, AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
