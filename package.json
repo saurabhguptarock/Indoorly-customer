@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve -o",
     "build": "ng build --prod",
+    "deploy": "ng build --prod && firebase deploy --only hosting:indoorlycustomer",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

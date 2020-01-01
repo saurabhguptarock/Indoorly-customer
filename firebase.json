@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "public": "dist/now-ui-dashboard-pro-angular",
+    "site": "indoorlycustomer",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
