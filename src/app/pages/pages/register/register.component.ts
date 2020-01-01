@@ -6,9 +6,9 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit, OnDestroy {
-  private focus;
-  private focus2;
-  private focus3;
+  public focus;
+  public focus2;
+  public focus3;
 
   constructor() {}
 

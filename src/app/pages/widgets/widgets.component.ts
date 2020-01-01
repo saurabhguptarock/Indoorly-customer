@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./widgets.component.css"]
 })
 export class WidgetsComponent implements OnInit {
-  private state_default: boolean = true;
+  public state_default: boolean = true;
 
   constructor() {}
 

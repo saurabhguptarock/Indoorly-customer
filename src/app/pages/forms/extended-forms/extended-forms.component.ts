@@ -8,28 +8,28 @@ import noUiSlider from "nouislider";
   styleUrls: ["./extended-forms.component.css"]
 })
 export class ExtendedFormsComponent implements OnInit {
-  private tagItems = ["Minimal", "Light", "New", "Friends"];
+  public tagItems = ["Minimal", "Light", "New", "Friends"];
 
-  private simpleSlider = 40;
-  private doubleSlider = [20, 60];
+  public simpleSlider = 40;
+  public doubleSlider = [20, 60];
 
-  private state: boolean = true;
-  private state1: boolean = true;
-  private state2: boolean = true;
+  public state: boolean = true;
+  public state1: boolean = true;
+  public state2: boolean = true;
 
-  private dropdownList = [];
-  private selectedItems = [];
-  private dropdownSettings = {};
+  public dropdownList = [];
+  public selectedItems = [];
+  public dropdownSettings = {};
 
-  private dropdownList1 = [];
-  private selectedItems1 = [];
-  private dropdownSettings1 = {};
+  public dropdownList1 = [];
+  public selectedItems1 = [];
+  public dropdownSettings1 = {};
 
-  private model: NgbDateStruct;
-  private model1: NgbDateStruct;
-  private model2: NgbDateStruct;
+  public model: NgbDateStruct;
+  public model1: NgbDateStruct;
+  public model2: NgbDateStruct;
 
-  private today = this.calendar.getToday();
+  public today = this.calendar.getToday();
 
   // @Input() footerTemplate: TemplateRef<any>;
 

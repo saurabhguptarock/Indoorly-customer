@@ -30,7 +30,7 @@
         <a
           data-toggle="collapse"
           href="#collapseExample"
-          (click)="isCollapsed = !isCollapsed; myFunc($event)"
+          (click)="isCollapsed = !isCollapsed; myFunc($event,isCollapsed)"
           [attr.aria-expanded]="!isCollapsed"
           aria-controls="collapseExample"
         >

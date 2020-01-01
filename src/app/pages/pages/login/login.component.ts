@@ -6,8 +6,8 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  private focus;
-  private focus2;
+  public focus;
+  public focus2;
   constructor() {}
 
   ngOnInit() {
@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     image_container.style.backgroundImage = "url(assets/img/bg14.jpg)";
     $page.appendChild(image_container);
     $page.classList.add("login-page");
-
   }
   ngOnDestroy() {
     var $page = document.getElementsByClassName("full-page")[0];
