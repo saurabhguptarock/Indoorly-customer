@@ -10,7 +10,6 @@ import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
 
 import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
-import { VectorMapComponent1 } from "./vector-map/vector-map.component";
 import { NgbdModalBasic } from "./modal/modal.component";
 import { ImageUploadComponent } from "./image-upload/image-upload.component";
 import { FileInputComponent } from "./file-input/file-input.component";
@@ -29,7 +28,7 @@ import { PictureUploadComponent } from "./picture-upload/picture-upload.componen
   declarations: [
     NavbarComponent,
     FooterComponent,
-    VectorMapComponent1,
+
     NgbdModalBasic,
     ImageUploadComponent,
     FileInputComponent,
@@ -38,7 +37,6 @@ import { PictureUploadComponent } from "./picture-upload/picture-upload.componen
   exports: [
     NavbarComponent,
     FooterComponent,
-    VectorMapComponent1,
     NgbdModalBasic,
     ImageUploadComponent,
     PictureUploadComponent,
