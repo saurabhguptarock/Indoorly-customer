@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { auth } from "firebase/app";
+import * as firebase from "firebase";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import {
@@ -31,7 +31,7 @@ export class FirebaseService {
     });
   }
   async signin() {
-    const provider = new auth.GoogleAuthProvider();
+    const provider = new firebase.auth.GoogleAuthProvider();
     const cred = await this.afAuth.auth.signInWithPopup(provider);
     return this.createUserData(cred.user);
   }
