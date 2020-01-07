@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
   public lineChartGradientsNumbersOptions: any;
   public lineChartGradientsNumbersLabels: Array<any>;
   public lineChartGradientsNumbersColors: Array<any>;
-
+  public totalAmount: number = 0;
   public chartClicked(e: any): void {
     console.log(e);
   }
@@ -75,6 +75,11 @@ export class DashboardComponent implements OnInit {
   products: Observable<firebase.firestore.DocumentData[]>;
   ngOnInit() {
     this.products = this.service.fetchProducts();
+    this.products.subscribe(data => {
+      data.forEach(doc => {
+        this.totalAmount += doc["amount"];
+      });
+    });
     this.gradientChartOptionsConfiguration = {
       maintainAspectRatio: false,
       legend: {

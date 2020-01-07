@@ -8,7 +8,7 @@ import { ToastrModule } from "ngx-toastr";
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
-import { environment } from "../../src/environments/environmetn.prod";
+import { environment } from "../../src/environments/environment.prod";
 import { AngularFireModule } from "@angular/fire";
 import {
   AngularFirestoreModule,
